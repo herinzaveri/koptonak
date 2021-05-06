@@ -1,0 +1,15 @@
+<div>
+	<app-ham-nav></app-ham-nav>
+	<div class="search-container">
+		<mat-form-field class="search-field" fxLayoutAlign="start center">
+			<mat-placeholder>
+				<mat-icon>search</mat-icon>
+				<span> Search</span>
+			</mat-placeholder>
+			<input matInput />
+		</mat-form-field>
+	</div>
+	<div class="container" *ngFor="let document of documents">
+		<app-document [documentName]="document.name" [documentLink]="document.link"></app-document>
+	</div>
+</div>

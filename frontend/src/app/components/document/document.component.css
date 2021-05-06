@@ -1,0 +1,25 @@
+.document-container {
+	padding: 20px;
+	margin: 10px;
+	/* height: 100px; */
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #ddd;
+}
+
+.document-icon {
+	font-size: 40px;
+}
+
+.document-icon-container {
+	flex: 1;
+}
+
+.document-name {
+	flex: 4;
+}
+
+.view-button {
+	flex: 1;
+}

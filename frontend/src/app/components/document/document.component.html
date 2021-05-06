@@ -1,0 +1,12 @@
+<div class="document-container" [class.mat-elevation-z4]="true">
+	<div class="document-icon-container">
+		<mat-icon class="document-icon">{{ documentIcon }}</mat-icon>
+	</div>
+	<div class="document-name">{{ document.name }}</div>
+	<div class="view-button">
+		<button mat-raised-button color="warn">
+			<ng-container *ngIf="!isAgent">Open File <mat-icon>file_download</mat-icon></ng-container>
+			<ng-container *ngIf="isAgent">View Agent <mat-icon>info</mat-icon></ng-container>
+		</button>
+	</div>
+</div>

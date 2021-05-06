@@ -1,0 +1,22 @@
+<app-nav-bar></app-nav-bar>
+<h3>Add Document</h3>
+<div class="add-document-container container">
+	<form>
+		<div class="form-field">
+			<mat-form-field class="add-agent-field" color="warn">
+				<mat-placeholder><span>Name</span></mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<div class="add-agent-field" color="warn">
+				<input class="d-none" type="file" name="" id="" />
+				<button mat-raised-button color="warn"><mat-icon>add</mat-icon> Choose Document</button>
+			</div>
+		</div>
+
+		<div class="form-field mt-4">
+			<button mat-raised-button color="warn"><mat-icon>file_upload</mat-icon> Upload Document</button>
+
+			<a routerLink="/admin" class="ml-3 cancel-link">Cancel</a>
+		</div>
+	</form>
+</div>

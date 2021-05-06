@@ -1,0 +1,85 @@
+<mat-tab-group color="warn" animationDuration="0ms">
+	<mat-tab label="Documents">
+		<div class="search-container">
+			<mat-form-field color="warn" class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+		</div>
+		<div *ngFor="let document of dataToRender">
+			<ng-container *ngIf="document.type === 'document'">
+				<app-document [document]="document"></app-document>
+			</ng-container>
+		</div>
+	</mat-tab>
+	<mat-tab label="Audios">
+		<div class="search-container">
+			<mat-form-field class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+		</div>
+		<div *ngFor="let document of dataToRender">
+			<ng-container *ngIf="document.type === 'audio'">
+				<app-document [document]="document"></app-document>
+			</ng-container>
+		</div>
+	</mat-tab>
+	<mat-tab label="Videos">
+		<div class="search-container">
+			<mat-form-field class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+		</div>
+		<div *ngFor="let document of dataToRender">
+			<ng-container *ngIf="document.type === 'video'">
+				<app-document [document]="document"></app-document>
+			</ng-container>
+		</div>
+	</mat-tab>
+	<mat-tab label="Images">
+		<div class="search-container">
+			<mat-form-field class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+		</div>
+		<div *ngFor="let document of dataToRender">
+			<ng-container *ngIf="document.type === 'image'">
+				<app-document [document]="document"></app-document>
+			</ng-container>
+		</div>
+	</mat-tab>
+	<mat-tab label="Agents">
+		<div class="search-container">
+			<mat-form-field class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input matInput />
+			</mat-form-field>
+			<button routerLink="/add-agent" class="ml-5" mat-raised-button color="warn">Add</button>
+		</div>
+		<div *ngFor="let agent of agents">
+			<app-document [isAgent]="true" [document]="agent"></app-document>
+		</div>
+	</mat-tab>
+</mat-tab-group>
