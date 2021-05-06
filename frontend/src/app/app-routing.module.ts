@@ -9,9 +9,10 @@ import { LoginComponent } from "./components/login/login.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { TabsMenuComponent } from "./components/tabs-menu/tabs-menu.component";
 import { UserComponent } from "./components/user/user.component";
+import { WelcomeComponent } from "./components/welcome/welcome.component";
 
 const routes: Routes = [
-	{ path: "", redirectTo: "/login", pathMatch: "full" },
+	{ path: "", component: WelcomeComponent },
 	{ path: "login", component: LoginComponent },
 	{ path: "admin", component: AdminComponent },
 	{ path: "add-agent", component: AddAgentComponent },
@@ -25,4 +26,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent];
+export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent, WelcomeComponent];

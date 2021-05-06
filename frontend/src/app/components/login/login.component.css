@@ -10,17 +10,22 @@
 
 .login-container {
 	position: absolute;
-	top: 50%;
+	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 40%;
 	padding: 40px;
+	background-color: white;
 }
 
 .form-field {
 	margin: 10px 0;
 }
 
-.button-color {
-	background-color: pink;
+.logo-container {
+	text-align: center;
+}
+
+.logo-img {
+	width: 40%;
 }
