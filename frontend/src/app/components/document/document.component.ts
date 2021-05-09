@@ -10,7 +10,7 @@ export class DocumentComponent implements OnInit {
 
 	documentIcon;
 
-	isAdmin = true;
+	isAdmin = localStorage.getItem("isAdmin");
 
 	constructor() {}
 

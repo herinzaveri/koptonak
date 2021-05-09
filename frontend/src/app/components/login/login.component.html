@@ -2,23 +2,24 @@
 	<img class="logo-img" src="../../../assets/img/logo.png" alt="" />
 </div>
 <div class="login-container" [class.mat-elevation-z8]="true">
-	<form>
+	<div *ngIf="userMsg" class="text-danger">{{ userMsg }}</div>
+	<form [formGroup]="loginForm">
 		<div class="login-user-full-width form-field">
 			<mat-form-field class="login-user-full-width">
-				<mat-label>Email</mat-label>
-				<input matInput />
+				<mat-label>Username</mat-label>
+				<input formControlName="username" matInput />
 			</mat-form-field>
 		</div>
 
 		<div class="login-user-full-width form-field">
 			<mat-form-field class="login-user-full-width">
 				<mat-label>Password</mat-label>
-				<input matInput type="password" />
+				<input formControlName="password" matInput type="password" />
 			</mat-form-field>
 		</div>
 
 		<div class="form-field">
-			<button mat-raised-button color="warn">Login</button>
+			<button (click)="doLogin()" [disabled]="loginForm.invalid" mat-raised-button color="warn">Login</button>
 		</div>
 	</form>
 </div>

@@ -10,14 +10,16 @@ import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { TabsMenuComponent } from "./components/tabs-menu/tabs-menu.component";
 import { UserComponent } from "./components/user/user.component";
 import { WelcomeComponent } from "./components/welcome/welcome.component";
+import { AdminGuard } from "./guards/admin.guard";
+import { LoginGuard } from "./guards/login.guard";
 
 const routes: Routes = [
 	{ path: "", component: WelcomeComponent },
-	{ path: "login", component: LoginComponent },
-	{ path: "admin", component: AdminComponent },
+	{ path: "login", component: LoginComponent, canActivate: [LoginGuard] },
+	{ path: "admin", component: AdminComponent, canActivate: [AdminGuard] },
 	{ path: "add-agent", component: AddAgentComponent },
 	{ path: "add-document", component: AddDocumentComponent },
-	{ path: "user", component: UserComponent },
+	{ path: "user", component: UserComponent, canActivate: [LoginGuard] },
 ];
 
 @NgModule({

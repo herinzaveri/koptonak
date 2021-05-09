@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const multer = require("multer");
 const path = require("path");
 const Data = require("./model/data");
+const Admin = require("./model/admin");
 
 const app = express();
 
@@ -96,6 +97,20 @@ app.put("/data", async (req, res) => {
 app.get("/data/:id", async (req, res) => {
 	let post = await Data.findById(req.params.id);
 	res.send(post);
+});
+
+// login route
+app.post("/login", async (req, res) => {
+	const { username, password } = req.body;
+
+	let admin = await Admin.find();
+	admin = admin[0];
+
+	if (username === admin.username && password === admin.password) {
+		res.send({ status: 200, admin });
+	} else {
+		res.send({ status: 400, msg: "Invalid username or password" });
+	}
 });
 
 const port = 3000;

@@ -13,7 +13,7 @@ export class TabsMenuComponent implements OnInit {
 
 	dataToRender;
 
-	isAdmin = false;
+	isAdmin = localStorage.getItem("isAdmin");
 
 	constructor(private uploadService: UploadService) {}
 
