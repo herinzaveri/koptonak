@@ -4,7 +4,7 @@
 			<div class="logo-img">
 				<img src="../../../assets/img/logo.png" alt="" />
 			</div>
-			<div class="logout-container">
+			<div *ngIf="isAdmin" class="logout-container">
 				<button mat-raised-button color="warn">Logout <mat-icon>logout</mat-icon></button>
 			</div>
 		</div>

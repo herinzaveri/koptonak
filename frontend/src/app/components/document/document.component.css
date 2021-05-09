@@ -23,3 +23,8 @@
 .view-button {
 	flex: 1;
 }
+
+.view-button a,
+.view-button button {
+	margin: 1% 0;
+}

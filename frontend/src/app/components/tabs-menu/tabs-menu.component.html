@@ -6,9 +6,9 @@
 					<mat-icon>search</mat-icon>
 					<span> Search</span>
 				</mat-placeholder>
-				<input matInput />
+				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'document'">
@@ -18,14 +18,14 @@
 	</mat-tab>
 	<mat-tab label="Audios">
 		<div class="search-container">
-			<mat-form-field class="search-field" fxLayoutAlign="start center">
+			<mat-form-field color="warn" class="search-field" fxLayoutAlign="start center">
 				<mat-placeholder>
 					<mat-icon>search</mat-icon>
 					<span> Search</span>
 				</mat-placeholder>
-				<input matInput />
+				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'audio'">
@@ -33,7 +33,7 @@
 			</ng-container>
 		</div>
 	</mat-tab>
-	<mat-tab label="Videos">
+	<!-- <mat-tab label="Videos">
 		<div class="search-container">
 			<mat-form-field class="search-field" fxLayoutAlign="start center">
 				<mat-placeholder>
@@ -81,5 +81,5 @@
 		<div *ngFor="let agent of agents">
 			<app-document [isAgent]="true" [document]="agent"></app-document>
 		</div>
-	</mat-tab>
+	</mat-tab> -->
 </mat-tab-group>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { UploadService } from "src/app/services/upload.service";
 
 @Component({
 	selector: "app-tabs-menu",
@@ -12,9 +13,24 @@ export class TabsMenuComponent implements OnInit {
 
 	dataToRender;
 
-	constructor() {}
+	isAdmin = false;
+
+	constructor(private uploadService: UploadService) {}
 
 	ngOnInit(): void {
+		// this.renderData();
+
+		console.log(this.documents);
+	}
+
+	ngOnChanges() {
+		console.log(this.documents);
 		this.dataToRender = [...this.documents];
+	}
+
+	filterDocuments(event) {
+		// console.log(event.target.value);
+		// let regex = new RegExp(event.target.value)
+		this.dataToRender = this.documents.filter(doc => doc.documentName.includes(event.target.value));
 	}
 }

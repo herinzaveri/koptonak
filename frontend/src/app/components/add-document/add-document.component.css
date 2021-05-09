@@ -13,7 +13,8 @@ mat-form-field span {
 }
 
 .mat-focused mat-icon,
-.mat-focused span {
+.mat-focused span,
+.theme-color {
 	color: #f44336;
 }
 

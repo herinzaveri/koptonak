@@ -2,11 +2,16 @@
 	<div class="document-icon-container">
 		<mat-icon class="document-icon">{{ documentIcon }}</mat-icon>
 	</div>
-	<div class="document-name">{{ document.name }}</div>
+	<div class="document-name">{{ document.documentName }}</div>
 	<div class="view-button">
-		<button mat-raised-button color="warn">
-			<ng-container *ngIf="!isAgent">Open File <mat-icon>file_download</mat-icon></ng-container>
-			<ng-container *ngIf="isAgent">View Agent <mat-icon>info</mat-icon></ng-container>
+		<button *ngIf="isAdmin" mat-raised-button>
+			<ng-container>Edit File <mat-icon>edit</mat-icon></ng-container>
 		</button>
+		<button mat-raised-button color="warn">
+			<ng-container>Delete File <mat-icon>delete</mat-icon></ng-container>
+		</button>
+		<a *ngIf="isAdmin" [href]="document.documentPath" target="_blank" mat-raised-button color="primary">
+			<ng-container>Open File <mat-icon>file_download</mat-icon></ng-container>
+		</a>
 	</div>
 </div>

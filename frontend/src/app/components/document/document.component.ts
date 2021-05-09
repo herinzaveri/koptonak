@@ -7,16 +7,15 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class DocumentComponent implements OnInit {
 	@Input() document;
-	@Input() isAgent = false;
 
 	documentIcon;
+
+	isAdmin = true;
 
 	constructor() {}
 
 	ngOnInit(): void {
-		if (this.isAgent) {
-			this.documentIcon = "account_circle";
-		} else if (this.document.type === "document") {
+		if (this.document.type === "document") {
 			this.documentIcon = "description";
 		} else if (this.document.type === "audio") {
 			this.documentIcon = "music_note";

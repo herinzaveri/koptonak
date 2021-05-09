@@ -62,7 +62,7 @@ app.post("/data", async (req, res) => {
 
 	data = await data.save();
 
-	res.send(data);
+	res.send({ status: 200, msg: "File uploaded successfully" });
 });
 
 // to get all documents
@@ -81,9 +81,9 @@ app.delete("/data/:id", async (req, res) => {
 app.put("/data", async (req, res) => {
 	const { documentName } = req.body;
 	let bodyObj = {
-		documentName
+		documentName,
 	};
-	
+
 	await Data.findOneAndUpdate({ _id: req.body.id }, bodyObj);
 
 	res.status(200).send({

@@ -6,7 +6,10 @@ const dataSchema = mongoose.Schema({
 	},
 	documentPath: {
 		type: String,
-	}
+	},
+	type: {
+		type: String,
+	},
 });
 
 const Data = mongoose.model("datas", dataSchema);

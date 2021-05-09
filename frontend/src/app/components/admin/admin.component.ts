@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { UploadService } from "src/app/services/upload.service";
 
 @Component({
 	selector: "app-admin",
@@ -7,10 +8,10 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminComponent implements OnInit {
 	documents = [
-		{ name: "herin", link: "https://google.com", type: "document" },
-		{ name: "chaitanya", link: "https://facebook.com", type: "audio" },
-		{ name: "rana", link: "https://twitter.com", type: "document" },
-		{ name: "zaveri", link: "https://youtube.com", type: "document" },
+		// { name: "herin", link: "https://google.com", type: "document" },
+		// { name: "chaitanya", link: "https://facebook.com", type: "audio" },
+		// { name: "rana", link: "https://twitter.com", type: "document" },
+		// { name: "zaveri", link: "https://youtube.com", type: "document" },
 	];
 
 	agents = [
@@ -20,7 +21,15 @@ export class AdminComponent implements OnInit {
 		{ name: "zaveri", link: "https://youtube.com", type: "document", id: 7654 },
 	];
 
-	constructor() {}
+	constructor(private uploadService: UploadService) {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.renderData();
+	}
+
+	async renderData() {
+		this.documents = await this.uploadService.fetchData();
+
+		console.log(this.documents);
+	}
 }
