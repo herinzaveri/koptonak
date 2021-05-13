@@ -121,6 +121,15 @@ app.get("/admin", async (req, res) => {
 	res.send(admin);
 });
 
+// change admin
+app.post("/admin", async (req, res) => {
+	const { username, password } = req.body;
+
+	let admin = await Admin.findOneAndUpdate({}, { username, password });
+
+	res.send(admin);
+});
+
 const port = 3000;
 
 app.listen(port, () => console.log(`listening on port ${port}...`));

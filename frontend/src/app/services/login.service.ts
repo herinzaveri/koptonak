@@ -17,9 +17,22 @@ export class LoginService {
 	}
 
 	async getAdmin() {
-		const url = "http://localhost:3000/admin";
+		const url = "https://koptonak.chaitanyarana.com/admin";
 
 		let response = await this.http.get(url).toPromise();
+
+		return response;
+	}
+
+	async changeAdmin(adminData) {
+		const url = "https://koptonak.chaitanyarana.com/admin";
+
+		let response = await this.http
+			.post(url, {
+				username: adminData.username,
+				password: adminData.password,
+			})
+			.toPromise();
 
 		return response;
 	}
