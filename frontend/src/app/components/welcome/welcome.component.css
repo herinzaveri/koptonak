@@ -4,7 +4,7 @@
 
 .logo-container {
 	text-align: center;
-	background-color: #f44336;
+	background-color: #ff6900;
 }
 
 .logo-img {
@@ -22,4 +22,8 @@
 	bottom: 0;
 	right: 0;
 	padding: 10px;
+}
+
+.enter-button button {
+	background-color: #ff6900;
 }

@@ -4,6 +4,7 @@ import { AddAgentComponent } from "./components/add-agent/add-agent.component";
 import { AddDocumentComponent } from "./components/add-document/add-document.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { DocumentComponent } from "./components/document/document.component";
+import { EditDocumentComponent } from "./components/edit-document/edit-document.component";
 import { HamNavComponent } from "./components/ham-nav/ham-nav.component";
 import { LoginComponent } from "./components/login/login.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
@@ -18,7 +19,8 @@ const routes: Routes = [
 	{ path: "login", component: LoginComponent, canActivate: [LoginGuard] },
 	{ path: "admin", component: AdminComponent, canActivate: [AdminGuard] },
 	{ path: "add-agent", component: AddAgentComponent },
-	{ path: "add-document", component: AddDocumentComponent },
+	{ path: "add-document", component: AddDocumentComponent, canActivate: [AdminGuard] },
+	{ path: "edit-document", component: EditDocumentComponent, canActivate: [AdminGuard] },
 	{ path: "user", component: UserComponent, canActivate: [LoginGuard] },
 ];
 
@@ -28,4 +30,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent, WelcomeComponent];
+export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent, WelcomeComponent, EditDocumentComponent];

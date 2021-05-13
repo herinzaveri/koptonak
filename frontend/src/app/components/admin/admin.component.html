@@ -1,4 +1,4 @@
 <app-nav-bar></app-nav-bar>
 <div class="admin-container container">
-	<app-tabs-menu [agents]="agents" [documents]="documents"></app-tabs-menu>
+	<app-tabs-menu (deleteEvent)="renderData()" [agents]="agents" [documents]="documents"></app-tabs-menu>
 </div>

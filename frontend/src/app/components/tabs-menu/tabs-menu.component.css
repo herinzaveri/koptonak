@@ -14,7 +14,7 @@ mat-form-field span {
 
 .mat-focused mat-icon,
 .mat-focused span {
-	color: #f44336;
+	color: #ff6900 !important;
 }
 
 .mat-input-element {
@@ -31,4 +31,10 @@ mat-form-field span {
 
 .mat-placeholder {
 	color: white;
+}
+
+button,
+.mat-ink-bar,
+.mat-form-field-ripple {
+	background-color: #ff6900 !important;
 }

@@ -11,17 +11,17 @@ export class UploadService {
 		const fd = new FormData();
 		fd.append("image", imageFile);
 
-		let url = "http://localhost:3000/upload";
+		let url = "https://koptonak.chaitanyarana.com/upload";
 
 		let response: any = await this.http.post(url, fd).toPromise();
 
 		console.log(response);
 
-		return "http://localhost:3000/" + response.path;
+		return "https://koptonak.chaitanyarana.com/" + response.path;
 	}
 
 	async insertData(bodyObj) {
-		let url = "http://localhost:3000/data";
+		let url = "https://koptonak.chaitanyarana.com/data";
 
 		let response: any = await this.http.post(url, bodyObj).toPromise();
 
@@ -29,9 +29,25 @@ export class UploadService {
 	}
 
 	async fetchData() {
-		let url = "http://localhost:3000/documents";
+		let url = "https://koptonak.chaitanyarana.com/documents";
 
 		let response: any = await this.http.get(url).toPromise();
+
+		return response;
+	}
+
+	async updateData(id, documentName) {
+		let url = "https://koptonak.chaitanyarana.com/data";
+
+		let response = await this.http.put(url, { id, documentName }).toPromise();
+
+		return response;
+	}
+
+	async deleteData(id) {
+		let url = `https://koptonak.chaitanyarana.com/data/${id}`;
+
+		let response = await this.http.delete(url).toPromise();
 
 		return response;
 	}

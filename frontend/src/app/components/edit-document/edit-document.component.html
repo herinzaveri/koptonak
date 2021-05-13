@@ -1,0 +1,24 @@
+<app-nav-bar></app-nav-bar>
+<h3>Edit Document</h3>
+<div class="add-document-container container">
+	<div class="theme-color text-center" *ngIf="userMsg">{{ userMsg }}</div>
+	<form>
+		<div class="form-field">
+			<mat-form-field class="add-agent-field" color="warn">
+				<mat-placeholder><span>Name</span></mat-placeholder>
+				<input [value]="document.documentName" id="document-title" matInput />
+			</mat-form-field>
+			<div class="add-agent-field" color="warn">
+				<!-- <input #document class="d-none" type="file" name="documentUpload" id="document-field" /> -->
+				<a [href]="document.documentPath" target="_blank" mat-raised-button color="warn"><mat-icon>visibility</mat-icon> View Document</a>
+				<!-- <span *ngIf="fileName" class="theme-color ml-2">{{ fileName }}</span> -->
+			</div>
+		</div>
+
+		<div class="form-field mt-4">
+			<button (click)="doUpdate()" mat-raised-button color="warn"><mat-icon>update</mat-icon> Update Document</button>
+
+			<a routerLink="/admin" class="ml-3 cancel-link">Cancel</a>
+		</div>
+	</form>
+</div>

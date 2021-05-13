@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Router } from "@angular/router";
+import { UploadService } from "src/app/services/upload.service";
 
 @Component({
 	selector: "app-document",
@@ -8,11 +10,13 @@ import { Component, Input, OnInit } from "@angular/core";
 export class DocumentComponent implements OnInit {
 	@Input() document;
 
+	@Output() deleteEvent = new EventEmitter();
+
 	documentIcon;
 
 	isAdmin = localStorage.getItem("isAdmin");
 
-	constructor() {}
+	constructor(private router: Router, private uploadService: UploadService) {}
 
 	ngOnInit(): void {
 		if (this.document.type === "document") {
@@ -23,6 +27,20 @@ export class DocumentComponent implements OnInit {
 			this.documentIcon = "play_circle_outline";
 		} else if (this.document.type === "image") {
 			this.documentIcon = "image";
+		}
+	}
+
+	navigateEdit() {
+		this.router.navigate(["edit-document"], { state: this.document });
+	}
+
+	async doDelete() {
+		const confirmation = confirm("Are you sure you want to delete this");
+
+		if (confirmation) {
+			await this.uploadService.deleteData(this.document._id);
+
+			this.deleteEvent.emit();
 		}
 	}
 }

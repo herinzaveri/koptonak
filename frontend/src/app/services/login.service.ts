@@ -10,7 +10,7 @@ export class LoginService {
 
 	async login(user) {
 		console.log(user);
-		const url = "http://localhost:3000/login";
+		const url = "https://koptonak.chaitanyarana.com/login";
 
 		let response = await this.http.post(url, user).toPromise();
 

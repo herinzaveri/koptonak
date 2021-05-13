@@ -29,7 +29,5 @@ export class AdminComponent implements OnInit {
 
 	async renderData() {
 		this.documents = await this.uploadService.fetchData();
-
-		console.log(this.documents);
 	}
 }

@@ -12,7 +12,7 @@
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'document'">
-				<app-document [document]="document"></app-document>
+				<app-document (deleteEvent)="reloadData()" [document]="document"></app-document>
 			</ng-container>
 		</div>
 	</mat-tab>
@@ -29,7 +29,7 @@
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'audio'">
-				<app-document [document]="document"></app-document>
+				<app-document (deleteEvent)="reloadData()" [document]="document"></app-document>
 			</ng-container>
 		</div>
 	</mat-tab>

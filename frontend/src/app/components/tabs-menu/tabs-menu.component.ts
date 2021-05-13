@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, Input, OnInit, Output, ViewEncapsulation, EventEmitter } from "@angular/core";
 import { UploadService } from "src/app/services/upload.service";
 
 @Component({
@@ -11,6 +11,8 @@ export class TabsMenuComponent implements OnInit {
 	@Input() documents;
 	@Input() agents;
 
+	@Output() deleteEvent = new EventEmitter();
+
 	dataToRender;
 
 	isAdmin = localStorage.getItem("isAdmin");
@@ -19,12 +21,9 @@ export class TabsMenuComponent implements OnInit {
 
 	ngOnInit(): void {
 		// this.renderData();
-
-		console.log(this.documents);
 	}
 
 	ngOnChanges() {
-		console.log(this.documents);
 		this.dataToRender = [...this.documents];
 	}
 
@@ -32,5 +31,9 @@ export class TabsMenuComponent implements OnInit {
 		// console.log(event.target.value);
 		// let regex = new RegExp(event.target.value)
 		this.dataToRender = this.documents.filter(doc => doc.documentName.includes(event.target.value));
+	}
+
+	reloadData() {
+		this.deleteEvent.emit();
 	}
 }
