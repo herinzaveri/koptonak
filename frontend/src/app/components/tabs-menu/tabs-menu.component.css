@@ -33,7 +33,7 @@ mat-form-field span {
 	color: white;
 }
 
-button,
+.theme-button,
 .mat-ink-bar,
 .mat-form-field-ripple {
 	background-color: #ff6900 !important;

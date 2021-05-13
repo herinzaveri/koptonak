@@ -113,6 +113,14 @@ app.post("/login", async (req, res) => {
 	}
 });
 
+// get admin route
+app.get("/admin", async (req, res) => {
+	let admin = await Admin.find();
+	admin = admin[0];
+
+	res.send(admin);
+});
+
 const port = 3000;
 
 app.listen(port, () => console.log(`listening on port ${port}...`));

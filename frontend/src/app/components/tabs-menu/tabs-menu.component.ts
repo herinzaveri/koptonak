@@ -28,9 +28,9 @@ export class TabsMenuComponent implements OnInit {
 	}
 
 	filterDocuments(event) {
-		// console.log(event.target.value);
-		// let regex = new RegExp(event.target.value)
-		this.dataToRender = this.documents.filter(doc => doc.documentName.includes(event.target.value));
+		console.log(event.target.value);
+		let regex = new RegExp(event.target.value, "i");
+		this.dataToRender = this.documents.filter(doc => doc.documentName.match(regex));
 	}
 
 	reloadData() {

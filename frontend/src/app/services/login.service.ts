@@ -9,10 +9,17 @@ export class LoginService {
 	constructor(private http: HttpClient, private router: Router) {}
 
 	async login(user) {
-		console.log(user);
 		const url = "https://koptonak.chaitanyarana.com/login";
 
 		let response = await this.http.post(url, user).toPromise();
+
+		return response;
+	}
+
+	async getAdmin() {
+		const url = "http://localhost:3000/admin";
+
+		let response = await this.http.get(url).toPromise();
 
 		return response;
 	}

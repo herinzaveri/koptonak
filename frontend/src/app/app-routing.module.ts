@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AddAgentComponent } from "./components/add-agent/add-agent.component";
 import { AddDocumentComponent } from "./components/add-document/add-document.component";
 import { AdminComponent } from "./components/admin/admin.component";
+import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 import { DocumentComponent } from "./components/document/document.component";
 import { EditDocumentComponent } from "./components/edit-document/edit-document.component";
 import { HamNavComponent } from "./components/ham-nav/ham-nav.component";
@@ -21,6 +22,7 @@ const routes: Routes = [
 	{ path: "add-agent", component: AddAgentComponent },
 	{ path: "add-document", component: AddDocumentComponent, canActivate: [AdminGuard] },
 	{ path: "edit-document", component: EditDocumentComponent, canActivate: [AdminGuard] },
+	{ path: "change-password", component: ChangePasswordComponent, canActivate: [AdminGuard] },
 	{ path: "user", component: UserComponent, canActivate: [LoginGuard] },
 ];
 
@@ -30,4 +32,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent, WelcomeComponent, EditDocumentComponent];
+export const routingComponents = [LoginComponent, AdminComponent, UserComponent, DocumentComponent, HamNavComponent, TabsMenuComponent, NavBarComponent, AddAgentComponent, AddDocumentComponent, WelcomeComponent, EditDocumentComponent, ChangePasswordComponent];

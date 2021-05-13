@@ -5,7 +5,8 @@
 				<img src="../../../assets/img/logo.png" alt="" />
 			</div>
 			<div *ngIf="isAdmin" class="logout-container">
-				<button (click)="doLogout()" mat-raised-button color="warn">Logout <mat-icon>logout</mat-icon></button>
+				<button class="theme-button" (click)="doLogout()" mat-raised-button color="warn">Logout <mat-icon>logout</mat-icon></button>
+				<button class="theme-button mr-2" routerLink="/change-password" mat-raised-button color="warn">Change Password <mat-icon>logout</mat-icon></button>
 			</div>
 		</div>
 	</div>

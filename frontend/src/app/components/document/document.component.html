@@ -4,13 +4,13 @@
 	</div>
 	<div class="document-name">{{ document.documentName }}</div>
 	<div class="view-button">
-		<button (click)="navigateEdit()" *ngIf="isAdmin" mat-raised-button>
+		<button (click)="navigateEdit()" *ngIf="isAdmin" mat-raised-button color="primary">
 			<ng-container>Edit File <mat-icon>edit</mat-icon></ng-container>
 		</button>
 		<button (click)="doDelete()" *ngIf="isAdmin" mat-raised-button color="warn">
 			<ng-container>Delete File <mat-icon>delete</mat-icon></ng-container>
 		</button>
-		<a [href]="document.documentPath" target="_blank" mat-raised-button>
+		<a class="open-button" color="warn" [href]="document.documentPath" target="_blank" mat-raised-button>
 			<ng-container>Open File <mat-icon>file_download</mat-icon></ng-container>
 		</a>
 	</div>

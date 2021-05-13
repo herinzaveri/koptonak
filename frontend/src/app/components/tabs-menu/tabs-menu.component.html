@@ -8,7 +8,7 @@
 				</mat-placeholder>
 				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5 theme-button" mat-raised-button color="warn">Add</button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'document'">
@@ -25,7 +25,7 @@
 				</mat-placeholder>
 				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5 theme-button" mat-raised-button color="warn">Add</button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'audio'">
