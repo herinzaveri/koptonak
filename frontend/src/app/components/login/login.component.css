@@ -15,7 +15,7 @@
 	transform: translate(-50%, -50%);
 	width: 40%;
 	padding: 40px;
-	background-color: white;
+	background-color: #ff6900;
 }
 
 .form-field {
@@ -28,4 +28,16 @@
 
 .logo-img {
 	width: 40%;
+}
+
+.mat-input-element {
+	color: white !important;
+}
+
+.mat-form-field-underline {
+	background-color: white !important;
+}
+
+.mat-tab-label {
+	color: white;
 }

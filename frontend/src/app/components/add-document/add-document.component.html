@@ -39,5 +39,13 @@
 
 			<a routerLink="/admin" class="ml-3 cancel-link theme-color">Cancel</a>
 		</div>
+		<div *ngIf="isLoading">
+			<div class="text-center">
+				<img width="180" height="180" src="../../../assets/img/loader.gif" alt="" />
+			</div>
+			<div class="text-center text-white">
+				<p>Please be patient your file is being uploaded...</p>
+			</div>
+		</div>
 	</form>
 </div>

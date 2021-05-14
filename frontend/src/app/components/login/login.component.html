@@ -3,16 +3,16 @@
 </div>
 <div class="login-container" [class.mat-elevation-z8]="true">
 	<div *ngIf="userMsg" class="text-danger">{{ userMsg }}</div>
-	<form [formGroup]="loginForm">
+	<form [formGroup]="loginForm" color="basic">
 		<div class="login-user-full-width form-field">
-			<mat-form-field class="login-user-full-width">
+			<mat-form-field class="login-user-full-width" color="basic">
 				<mat-label>Username</mat-label>
 				<input formControlName="username" matInput />
 			</mat-form-field>
 		</div>
 
 		<div class="login-user-full-width form-field">
-			<mat-form-field class="login-user-full-width">
+			<mat-form-field class="login-user-full-width" color="basic">
 				<mat-label>Password</mat-label>
 				<input formControlName="password" matInput type="password" />
 			</mat-form-field>

@@ -9,6 +9,8 @@ import { UploadService } from "src/app/services/upload.service";
 export class UserComponent implements OnInit {
 	constructor(private uploadService: UploadService) {}
 
+	isLoading = true;
+
 	documents = [
 		// { name: "herin", link: "https://google.com" },
 		// { name: "chaitanya", link: "https://facebook.com" },
@@ -23,6 +25,6 @@ export class UserComponent implements OnInit {
 	async renderData() {
 		this.documents = await this.uploadService.fetchData();
 
-		console.log(this.documents);
+		this.isLoading = false;
 	}
 }

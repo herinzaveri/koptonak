@@ -23,11 +23,15 @@ export class AdminComponent implements OnInit {
 
 	constructor(private uploadService: UploadService) {}
 
+	isLoading = true;
+
 	ngOnInit(): void {
 		this.renderData();
 	}
 
 	async renderData() {
 		this.documents = await this.uploadService.fetchData();
+
+		this.isLoading = false;
 	}
 }

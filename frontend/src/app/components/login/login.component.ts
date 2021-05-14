@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { LoginService } from "src/app/services/login.service";
@@ -7,6 +7,7 @@ import { LoginService } from "src/app/services/login.service";
 	selector: "app-login",
 	templateUrl: "./login.component.html",
 	styleUrls: ["./login.component.css"],
+	encapsulation: ViewEncapsulation.None,
 })
 export class LoginComponent implements OnInit {
 	constructor(private fb: FormBuilder, private loginService: LoginService, private router: Router) {}

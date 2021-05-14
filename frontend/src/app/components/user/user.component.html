@@ -1,4 +1,12 @@
 <app-nav-bar></app-nav-bar>
-<div class="user-container container">
+<div *ngIf="isLoading">
+	<div class="text-center">
+		<img src="../../../assets/img/loader.gif" alt="" />
+	</div>
+	<div class="text-center text-white">
+		<p>Please be patient we are fetching the files real quick...</p>
+	</div>
+</div>
+<div *ngIf="!isLoading" class="user-container container">
 	<app-tabs-menu [documents]="documents"></app-tabs-menu>
 </div>
