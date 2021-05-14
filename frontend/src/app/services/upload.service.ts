@@ -11,17 +11,15 @@ export class UploadService {
 		const fd = new FormData();
 		fd.append("image", imageFile);
 
-		let url = "https://koptonak.chaitanyarana.com/upload";
+		let url = "https://koptonakbackend.com/upload";
 
 		let response: any = await this.http.post(url, fd).toPromise();
 
-		console.log(response);
-
-		return "https://koptonak.chaitanyarana.com/" + response.path;
+		return "https://koptonakbackend.com/" + response.path;
 	}
 
 	async insertData(bodyObj) {
-		let url = "https://koptonak.chaitanyarana.com/data";
+		let url = "https://koptonakbackend.com/data";
 
 		let response: any = await this.http.post(url, bodyObj).toPromise();
 
@@ -29,7 +27,7 @@ export class UploadService {
 	}
 
 	async fetchData() {
-		let url = "https://koptonak.chaitanyarana.com/documents";
+		let url = "https://koptonakbackend.com/documents";
 
 		let response: any = await this.http.get(url).toPromise();
 
@@ -37,7 +35,7 @@ export class UploadService {
 	}
 
 	async updateData(id, documentName) {
-		let url = "https://koptonak.chaitanyarana.com/data";
+		let url = "https://koptonakbackend.com/data";
 
 		let response = await this.http.put(url, { id, documentName }).toPromise();
 
@@ -45,7 +43,7 @@ export class UploadService {
 	}
 
 	async deleteData(id) {
-		let url = `https://koptonak.chaitanyarana.com/data/${id}`;
+		let url = `https://koptonakbackend.com/data/${id}`;
 
 		let response = await this.http.delete(url).toPromise();
 

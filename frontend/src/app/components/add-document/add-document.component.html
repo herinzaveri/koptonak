@@ -1,24 +1,43 @@
 <app-nav-bar></app-nav-bar>
-<h3>Add Document</h3>
+<h3>Add File</h3>
 <div class="add-document-container container">
 	<div class="theme-color text-center" *ngIf="userMsg">{{ userMsg }}</div>
 	<form>
 		<div class="form-field">
+			<mat-label style="color: white">Type :</mat-label>
+			<mat-radio-group [(ngModel)]="uploadType" name="uploadType" aria-label="Select an option" color="warn">
+				<mat-radio-button class="ml-2" value="file" checked>File</mat-radio-button>
+				<mat-radio-button class="ml-2" value="link">Link</mat-radio-button>
+			</mat-radio-group>
+		</div>
+
+		<div *ngIf="uploadType === 'file'" class="form-field">
 			<mat-form-field class="add-agent-field" color="warn">
 				<mat-placeholder><span>Name</span></mat-placeholder>
 				<input id="document-title" matInput />
 			</mat-form-field>
 			<div class="add-agent-field" color="warn">
 				<input (change)="fileChangeFunc()" #document class="d-none" type="file" name="documentUpload" id="document-field" />
-				<button (click)="document.click()" mat-raised-button color="warn"><mat-icon>add</mat-icon> Choose Document</button>
+				<button class="theme-button" (click)="document.click()" mat-raised-button color="warn"><mat-icon>add</mat-icon> Choose Document</button>
 				<span *ngIf="fileName" class="theme-color ml-2">{{ fileName }}</span>
 			</div>
 		</div>
 
-		<div class="form-field mt-4">
-			<button (click)="uploadFunction()" mat-raised-button color="warn"><mat-icon>file_upload</mat-icon> Upload Document</button>
+		<div *ngIf="uploadType === 'link'" class="form-field">
+			<mat-form-field class="add-agent-field" color="warn">
+				<mat-placeholder><span>Name</span></mat-placeholder>
+				<input id="document-title" matInput />
+			</mat-form-field>
+			<mat-form-field class="add-agent-field ml-2" color="warn">
+				<mat-placeholder><span>Link</span></mat-placeholder>
+				<input id="document-link" matInput />
+			</mat-form-field>
+		</div>
 
-			<a routerLink="/admin" class="ml-3 cancel-link">Cancel</a>
+		<div class="form-field mt-4">
+			<button [disabled]="isLoading" class="theme-button" (click)="uploadFunction()" mat-raised-button color="warn"><mat-icon>file_upload</mat-icon> Upload</button>
+
+			<a routerLink="/admin" class="ml-3 cancel-link theme-color">Cancel</a>
 		</div>
 	</form>
 </div>

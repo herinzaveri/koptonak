@@ -15,7 +15,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 
 // add the mongo db
-const mongoURI = "mongodb+srv://herin-chaitanya:herin-chaitanya@cluster0.6pkzs.mongodb.net/koptonak?retryWrites=true&w=majority";
+const mongoURI = "mongodb+srv://koptonak:koptonak.backend@cluster0.cs9in.mongodb.net/koptonak?retryWrites=true&w=majority";
 // connection
 let conn;
 

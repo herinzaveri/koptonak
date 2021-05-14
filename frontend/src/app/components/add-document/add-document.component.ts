@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { UploadService } from "src/app/services/upload.service";
 
 @Component({
@@ -8,31 +8,37 @@ import { UploadService } from "src/app/services/upload.service";
 	styleUrls: ["./add-document.component.css"],
 })
 export class AddDocumentComponent implements OnInit {
-	constructor(private uploadService: UploadService, private router: Router) {}
+	constructor(private uploadService: UploadService, private router: Router, private route: ActivatedRoute) {}
 
 	userMsg = "";
 
 	documentField;
 	documentFile;
-	titleField;
+
+	uploadType;
+	type;
+
+	isLoading = false;
 
 	fileName = "";
 
 	ngOnInit(): void {
-		this.documentField = document.getElementById("document-field");
-		this.titleField = document.getElementById("document-title");
+		this.uploadType = "file";
+
+		this.type = this.route.snapshot.paramMap.get("type");
 	}
 
 	fileChangeFunc() {
+		this.documentField = document.getElementById("document-field");
 		this.documentFile = this.documentField.files[0];
 		this.fileName = this.documentFile.name;
-		console.log(this.documentFile);
 	}
 
 	async uploadFunction() {
-		const title = this.titleField.value;
-		let type;
-		console.log(title);
+		const title = (<HTMLInputElement>document.getElementById("document-title")).value;
+
+		let link;
+		let documentPath;
 
 		setTimeout(() => {
 			this.userMsg = "";
@@ -43,30 +49,50 @@ export class AddDocumentComponent implements OnInit {
 			return;
 		}
 
-		if (!this.documentFile) {
-			this.userMsg = "Please choose a document";
-			return;
-		}
+		if (this.uploadType === "file") {
+			if (!this.documentFile) {
+				this.userMsg = "Please choose a document";
+				return;
+			}
 
-		if (this.documentFile.type.includes("pdf")) {
-			type = "document";
-		} else if (this.documentFile.type.includes("audio")) {
-			type = "audio";
+			this.isLoading = true;
+
+			if (this.documentFile.type.includes("pdf")) {
+				this.type = "document";
+			} else if (this.documentFile.type.includes("audio")) {
+				this.type = "audio";
+			} else if (this.documentFile.type.includes("video")) {
+				this.type = "video";
+			} else {
+				this.userMsg = "Only pdf and audio file is allowed";
+				this.isLoading = false;
+				return;
+			}
+
+			documentPath = await this.uploadService.uploadImage(this.documentFile);
 		} else {
-			this.userMsg = "Only pdf and audio file is allowed";
-			return;
-		}
+			documentPath = (<HTMLInputElement>document.getElementById("document-link")).value;
+			if (!documentPath) {
+				this.userMsg = "Please enter a link";
+				return;
+			}
 
-		const documentPath = await this.uploadService.uploadImage(this.documentFile);
+			if (!documentPath.includes("http://") && !documentPath.includes("https://")) {
+				documentPath = "https://" + documentPath;
+			}
+		}
 
 		if (documentPath) {
+			this.isLoading = true;
 			const responseMsg = await this.uploadService.insertData({
 				documentName: title,
 				documentPath,
-				type,
+				type: this.type,
 			});
 
 			alert(responseMsg);
+
+			this.isLoading = false;
 
 			this.router.navigate(["/admin"]);
 		}

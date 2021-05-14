@@ -20,7 +20,7 @@ const routes: Routes = [
 	{ path: "login", component: LoginComponent, canActivate: [LoginGuard] },
 	{ path: "admin", component: AdminComponent, canActivate: [AdminGuard] },
 	{ path: "add-agent", component: AddAgentComponent },
-	{ path: "add-document", component: AddDocumentComponent, canActivate: [AdminGuard] },
+	{ path: "add-document/:type", component: AddDocumentComponent, canActivate: [AdminGuard] },
 	{ path: "edit-document", component: EditDocumentComponent, canActivate: [AdminGuard] },
 	{ path: "change-password", component: ChangePasswordComponent, canActivate: [AdminGuard] },
 	{ path: "user", component: UserComponent, canActivate: [LoginGuard] },

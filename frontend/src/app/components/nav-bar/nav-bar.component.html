@@ -1,12 +1,14 @@
 <div class="nav-bar">
 	<div class="container">
 		<div class="nav-bar-container">
-			<div class="logo-img">
-				<img src="../../../assets/img/logo.png" alt="" />
-			</div>
+			<a routerLink="/">
+				<div class="logo-img">
+					<img src="../../../assets/img/logo.png" alt="" />
+				</div>
+			</a>
 			<div *ngIf="isAdmin" class="logout-container">
 				<button class="theme-button" (click)="doLogout()" mat-raised-button color="warn">Logout <mat-icon>logout</mat-icon></button>
-				<button class="theme-button mr-2" routerLink="/change-password" mat-raised-button color="warn">Change Password <mat-icon>logout</mat-icon></button>
+				<button class="theme-button mr-2" routerLink="/change-password" mat-raised-button color="warn">Change Password <mat-icon>settings</mat-icon></button>
 			</div>
 		</div>
 	</div>

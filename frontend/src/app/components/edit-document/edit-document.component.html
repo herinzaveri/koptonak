@@ -10,15 +10,15 @@
 			</mat-form-field>
 			<div class="add-agent-field" color="warn">
 				<!-- <input #document class="d-none" type="file" name="documentUpload" id="document-field" /> -->
-				<a [href]="document.documentPath" target="_blank" mat-raised-button color="warn"><mat-icon>visibility</mat-icon> View Document</a>
+				<a class="theme-button" [href]="document.documentPath" target="_blank" mat-raised-button color="warn"><mat-icon>visibility</mat-icon> View Document</a>
 				<!-- <span *ngIf="fileName" class="theme-color ml-2">{{ fileName }}</span> -->
 			</div>
 		</div>
 
 		<div class="form-field mt-4">
-			<button (click)="doUpdate()" mat-raised-button color="warn"><mat-icon>update</mat-icon> Update Document</button>
+			<button class="theme-button" (click)="doUpdate()" mat-raised-button color="warn"><mat-icon>update</mat-icon> Update Document</button>
 
-			<a routerLink="/admin" class="ml-3 cancel-link">Cancel</a>
+			<a routerLink="/admin" class="ml-3 cancel-link theme-color">Cancel</a>
 		</div>
 	</form>
 </div>

@@ -14,3 +14,11 @@ body {
 	position: fixed;
 	z-index: 9999;
 } */
+
+.theme-button {
+	background-color: #ff6900 !important;
+}
+
+.theme-color {
+	color: #ff6900 !important;
+}

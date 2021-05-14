@@ -8,7 +8,7 @@
 				</mat-placeholder>
 				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5 theme-button" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document/document" class="ml-5 theme-button" mat-raised-button color="warn">Add <mat-icon>add</mat-icon></button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'document'">
@@ -25,10 +25,27 @@
 				</mat-placeholder>
 				<input (keyup)="filterDocuments($event)" matInput />
 			</mat-form-field>
-			<button *ngIf="isAdmin" routerLink="/add-document" class="ml-5 theme-button" mat-raised-button color="warn">Add</button>
+			<button *ngIf="isAdmin" routerLink="/add-document/audio" class="ml-5 theme-button" mat-raised-button color="warn">Add <mat-icon>add</mat-icon></button>
 		</div>
 		<div *ngFor="let document of dataToRender">
 			<ng-container *ngIf="document.type === 'audio'">
+				<app-document (deleteEvent)="reloadData()" [document]="document"></app-document>
+			</ng-container>
+		</div>
+	</mat-tab>
+	<mat-tab label="Videos">
+		<div class="search-container">
+			<mat-form-field color="warn" class="search-field" fxLayoutAlign="start center">
+				<mat-placeholder>
+					<mat-icon>search</mat-icon>
+					<span> Search</span>
+				</mat-placeholder>
+				<input (keyup)="filterDocuments($event)" matInput />
+			</mat-form-field>
+			<button *ngIf="isAdmin" routerLink="/add-document/video" class="ml-5 theme-button" mat-raised-button color="warn">Add <mat-icon>add</mat-icon></button>
+		</div>
+		<div *ngFor="let document of dataToRender">
+			<ng-container *ngIf="document.type === 'video'">
 				<app-document (deleteEvent)="reloadData()" [document]="document"></app-document>
 			</ng-container>
 		</div>

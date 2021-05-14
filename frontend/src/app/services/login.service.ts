@@ -9,7 +9,7 @@ export class LoginService {
 	constructor(private http: HttpClient, private router: Router) {}
 
 	async login(user) {
-		const url = "https://koptonak.chaitanyarana.com/login";
+		const url = "https://koptonakbackend.com/login";
 
 		let response = await this.http.post(url, user).toPromise();
 
@@ -17,7 +17,7 @@ export class LoginService {
 	}
 
 	async getAdmin() {
-		const url = "https://koptonak.chaitanyarana.com/admin";
+		const url = "https://koptonakbackend.com/admin";
 
 		let response = await this.http.get(url).toPromise();
 
@@ -25,7 +25,7 @@ export class LoginService {
 	}
 
 	async changeAdmin(adminData) {
-		const url = "https://koptonak.chaitanyarana.com/admin";
+		const url = "https://koptonakbackend.com/admin";
 
 		let response = await this.http
 			.post(url, {
